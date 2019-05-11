@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenbackground" translatesAutoresizingMaskIntoConstraints="NO" id="k1Z-uE-eVv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fGz-cC-86e">
+                                <rect key="frame" x="0.0" y="257.5" width="414" height="381"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPeople" translatesAutoresizingMaskIntoConstraints="NO" id="31t-PJ-jzf">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="333"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EFFEKTIVE MØDER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zT7-DA-2dV">
+                                        <rect key="frame" x="0.0" y="345" width="414" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zT7-DA-2dV" secondAttribute="trailing" id="3Dr-jT-gHd"/>
+                                    <constraint firstItem="zT7-DA-2dV" firstAttribute="top" secondItem="31t-PJ-jzf" secondAttribute="bottom" constant="12" id="4kU-Ph-L5j"/>
+                                    <constraint firstItem="zT7-DA-2dV" firstAttribute="leading" secondItem="fGz-cC-86e" secondAttribute="leading" id="6m5-g0-NJR"/>
+                                    <constraint firstItem="zT7-DA-2dV" firstAttribute="top" secondItem="31t-PJ-jzf" secondAttribute="bottom" constant="12" id="9Le-aI-KD0"/>
+                                    <constraint firstAttribute="bottom" secondItem="zT7-DA-2dV" secondAttribute="bottom" id="a1h-a8-5BP"/>
+                                    <constraint firstItem="31t-PJ-jzf" firstAttribute="leading" secondItem="fGz-cC-86e" secondAttribute="leading" id="dIX-Yx-ZT7"/>
+                                    <constraint firstItem="31t-PJ-jzf" firstAttribute="top" secondItem="fGz-cC-86e" secondAttribute="top" id="i96-BX-YE5"/>
+                                    <constraint firstAttribute="trailing" secondItem="31t-PJ-jzf" secondAttribute="trailing" id="xZc-ny-xCA"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="k1Z-uE-eVv" secondAttribute="bottom" id="045-Oh-gNF"/>
+                            <constraint firstItem="k1Z-uE-eVv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HsJ-oT-Fpz"/>
+                            <constraint firstItem="fGz-cC-86e" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Lx1-aU-2Kb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fGz-cC-86e" secondAttribute="trailing" id="PLI-Ft-JNP"/>
+                            <constraint firstItem="fGz-cC-86e" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="RCY-tV-6Lj"/>
+                            <constraint firstItem="k1Z-uE-eVv" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="RD5-Ig-WFf"/>
+                            <constraint firstItem="k1Z-uE-eVv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yid-qL-4Ec"/>
+                            <constraint firstItem="fGz-cC-86e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mQC-8e-SFb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="greenbackground" width="414" height="946.5"/>
+        <image name="iconPeople" width="333" height="333"/>
+    </resources>
+</document>

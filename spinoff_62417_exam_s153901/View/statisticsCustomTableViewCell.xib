@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="statisticsCustomCell" rowHeight="60" id="KGk-i7-Jjw" customClass="statisticsCustomTableViewCell" customModule="spinoff_62417_exam_s153901" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akD-nl-sgT">
+                        <rect key="frame" x="35" y="9" width="250" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgJ-k0-2cf" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="35" y="30" width="250" height="21"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                <real key="value" value="21"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rgJ-k0-2cf" firstAttribute="top" secondItem="akD-nl-sgT" secondAttribute="bottom" id="4uM-gd-PbK"/>
+                    <constraint firstItem="akD-nl-sgT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="CY4-q4-Gsc"/>
+                    <constraint firstAttribute="trailing" secondItem="akD-nl-sgT" secondAttribute="trailing" constant="35" id="KA8-fD-EIl"/>
+                    <constraint firstAttribute="trailing" secondItem="rgJ-k0-2cf" secondAttribute="trailing" constant="35" id="Wh1-HI-4sM"/>
+                    <constraint firstItem="akD-nl-sgT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="eAp-Nb-LbD"/>
+                    <constraint firstAttribute="bottom" secondItem="rgJ-k0-2cf" secondAttribute="bottom" constant="8.5" id="r7F-bu-GIF"/>
+                    <constraint firstItem="rgJ-k0-2cf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="rI6-VK-Nrd"/>
+                    <constraint firstItem="rgJ-k0-2cf" firstAttribute="top" secondItem="akD-nl-sgT" secondAttribute="bottom" id="s4I-df-WTf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentViewOutlet" destination="H2p-sc-9uM" id="6oW-n8-fk9"/>
+                <outlet property="labelText" destination="akD-nl-sgT" id="6Zm-UR-CbE"/>
+                <outlet property="starView" destination="rgJ-k0-2cf" id="v57-aL-3yJ"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="113.16964285714285"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -7,21 +7,79 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6D08E4C1A5993E8F834882F /* Pods_spinoff_62417_exam_s153901.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8993F729DA5DC626143BEC1 /* Pods_spinoff_62417_exam_s153901.framework */; };
+		F81718752280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81718732280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.swift */; };
+		F81718762280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81718742280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.xib */; };
+		F81C4F32225DF40200C76934 /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = F81C4F31225DF40200C76934 /* ToDo.txt */; };
+		F81C4F34225E10E800C76934 /* MeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81C4F33225E10E800C76934 /* MeetingsViewController.swift */; };
+		F81C4F38225E12BF00C76934 /* MeetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81C4F37225E12BF00C76934 /* MeetingTableViewCell.swift */; };
+		F81C4F3B225E3ED900C76934 /* MeetingOrganiserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81C4F3A225E3ED900C76934 /* MeetingOrganiserViewController.swift */; };
+		F81C4F402266564100C76934 /* MyCustomCreateQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81C4F3E2266564100C76934 /* MyCustomCreateQuestionCell.swift */; };
+		F81C4F412266564100C76934 /* MyCustomCreateQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81C4F3F2266564100C76934 /* MyCustomCreateQuestionCell.xib */; };
+		F8327B40225A3712005B21D8 /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8327B3F225A3712005B21D8 /* Answers.swift */; };
+		F8327B42225BA50D005B21D8 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8327B41225BA50D005B21D8 /* Meeting.swift */; };
+		F8327B45225BAB17005B21D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8327B44225BAB17005B21D8 /* Constants.swift */; };
+		F8327B47225BAD3D005B21D8 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8327B46225BAD3D005B21D8 /* Questions.swift */; };
+		F837E412224D342A00ACE8DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F837E411224D342A00ACE8DF /* GoogleService-Info.plist */; };
+		F83914E62286D4C40027B6E0 /* WatchMeetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83914E42286D4C40027B6E0 /* WatchMeetingTableViewCell.swift */; };
+		F83914E72286D4C40027B6E0 /* WatchMeetingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83914E52286D4C40027B6E0 /* WatchMeetingTableViewCell.xib */; };
+		F89A51C02275AD6B002F99DE /* statisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89A51BF2275AD6B002F99DE /* statisticsCell.swift */; };
+		F89A51C32275E0CA002F99DE /* statisticsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89A51C12275E0CA002F99DE /* statisticsCustomTableViewCell.swift */; };
+		F89A51C42275E0CA002F99DE /* statisticsCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F89A51C22275E0CA002F99DE /* statisticsCustomTableViewCell.xib */; };
 		F8B172302242827B009FB795 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B1722F2242827B009FB795 /* AppDelegate.swift */; };
-		F8B172322242827B009FB795 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B172312242827B009FB795 /* ViewController.swift */; };
 		F8B172352242827B009FB795 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B172332242827B009FB795 /* Main.storyboard */; };
 		F8B172372242827C009FB795 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B172362242827C009FB795 /* Assets.xcassets */; };
 		F8B1723A2242827C009FB795 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B172382242827C009FB795 /* LaunchScreen.storyboard */; };
+		F8BE38442252A67E00948EA4 /* StartOrWatchMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE38432252A67E00948EA4 /* StartOrWatchMeetingViewController.swift */; };
+		F8CB7D5A225BD03D0075825D /* OrganiserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB7D59225BD03D0075825D /* OrganiserTableViewController.swift */; };
+		F8D7CB15224D0771006D480B /* ChooseRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7CB14224D0771006D480B /* ChooseRoleViewController.swift */; };
+		F8D7CB17224D07F6006D480B /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7CB16224D07F6006D480B /* StatisticsViewController.swift */; };
+		F8D7CB19224D0841006D480B /* JoinMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7CB18224D0841006D480B /* JoinMeetingViewController.swift */; };
+		F8D7CB1B224D087B006D480B /* StartFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7CB1A224D087B006D480B /* StartFeedbackViewController.swift */; };
+		F8D7CB1D224D08A3006D480B /* GiveFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7CB1C224D08A3006D480B /* GiveFeedbackViewController.swift */; };
+		F8DC8F71224930EA004B5079 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC8F70224930EA004B5079 /* StartScreenViewController.swift */; };
+		F8DC8F732249320F004B5079 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC8F722249320F004B5079 /* ViewController.swift */; };
+		F8FB773E22838A6B00DABE87 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB773D22838A6B00DABE87 /* UITextFieldExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CD9B5FB3605EECA3D82435D /* Pods-spinoff_62417_exam_s153901.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spinoff_62417_exam_s153901.release.xcconfig"; path = "Target Support Files/Pods-spinoff_62417_exam_s153901/Pods-spinoff_62417_exam_s153901.release.xcconfig"; sourceTree = "<group>"; };
+		A8993F729DA5DC626143BEC1 /* Pods_spinoff_62417_exam_s153901.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spinoff_62417_exam_s153901.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D843C308AF2C10DD99FFD8AB /* Pods-spinoff_62417_exam_s153901.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spinoff_62417_exam_s153901.debug.xcconfig"; path = "Target Support Files/Pods-spinoff_62417_exam_s153901/Pods-spinoff_62417_exam_s153901.debug.xcconfig"; sourceTree = "<group>"; };
+		F81718732280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoshikoCreateMeetingTableViewCell.swift; sourceTree = "<group>"; };
+		F81718742280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoshikoCreateMeetingTableViewCell.xib; sourceTree = "<group>"; };
+		F81C4F31225DF40200C76934 /* ToDo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
+		F81C4F33225E10E800C76934 /* MeetingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsViewController.swift; sourceTree = "<group>"; };
+		F81C4F37225E12BF00C76934 /* MeetingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTableViewCell.swift; sourceTree = "<group>"; };
+		F81C4F3A225E3ED900C76934 /* MeetingOrganiserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingOrganiserViewController.swift; sourceTree = "<group>"; };
+		F81C4F3E2266564100C76934 /* MyCustomCreateQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCreateQuestionCell.swift; sourceTree = "<group>"; };
+		F81C4F3F2266564100C76934 /* MyCustomCreateQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomCreateQuestionCell.xib; sourceTree = "<group>"; };
+		F8327B3F225A3712005B21D8 /* Answers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
+		F8327B41225BA50D005B21D8 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		F8327B44225BAB17005B21D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F8327B46225BAD3D005B21D8 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		F837E411224D342A00ACE8DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F83914E42286D4C40027B6E0 /* WatchMeetingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMeetingTableViewCell.swift; sourceTree = "<group>"; };
+		F83914E52286D4C40027B6E0 /* WatchMeetingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchMeetingTableViewCell.xib; sourceTree = "<group>"; };
+		F89A51BF2275AD6B002F99DE /* statisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statisticsCell.swift; sourceTree = "<group>"; };
+		F89A51C12275E0CA002F99DE /* statisticsCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statisticsCustomTableViewCell.swift; sourceTree = "<group>"; };
+		F89A51C22275E0CA002F99DE /* statisticsCustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = statisticsCustomTableViewCell.xib; sourceTree = "<group>"; };
 		F8B1722C2242827B009FB795 /* spinoff_62417_exam_s153901.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spinoff_62417_exam_s153901.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B1722F2242827B009FB795 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8B172312242827B009FB795 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8B172342242827B009FB795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8B172362242827C009FB795 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8B172392242827C009FB795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8B1723B2242827C009FB795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8BE38432252A67E00948EA4 /* StartOrWatchMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOrWatchMeetingViewController.swift; sourceTree = "<group>"; };
+		F8CB7D59225BD03D0075825D /* OrganiserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganiserTableViewController.swift; sourceTree = "<group>"; };
+		F8D7CB14224D0771006D480B /* ChooseRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRoleViewController.swift; sourceTree = "<group>"; };
+		F8D7CB16224D07F6006D480B /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		F8D7CB18224D0841006D480B /* JoinMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeetingViewController.swift; sourceTree = "<group>"; };
+		F8D7CB1A224D087B006D480B /* StartFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFeedbackViewController.swift; sourceTree = "<group>"; };
+		F8D7CB1C224D08A3006D480B /* GiveFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveFeedbackViewController.swift; sourceTree = "<group>"; };
+		F8DC8F70224930EA004B5079 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		F8DC8F722249320F004B5079 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8FB773D22838A6B00DABE87 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +87,65 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6D08E4C1A5993E8F834882F /* Pods_spinoff_62417_exam_s153901.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A611FB6B9CABBD75495A48E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8993F729DA5DC626143BEC1 /* Pods_spinoff_62417_exam_s153901.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8327B3E225A3576005B21D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8327B3F225A3712005B21D8 /* Answers.swift */,
+				F8327B46225BAD3D005B21D8 /* Questions.swift */,
+				F8327B41225BA50D005B21D8 /* Meeting.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F8327B43225BAB09005B21D8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F8327B44225BAB17005B21D8 /* Constants.swift */,
+				F81C4F31225DF40200C76934 /* ToDo.txt */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F83F999F225BCB900087BD0D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F8BE38432252A67E00948EA4 /* StartOrWatchMeetingViewController.swift */,
+				F8D7CB1C224D08A3006D480B /* GiveFeedbackViewController.swift */,
+				F8D7CB1A224D087B006D480B /* StartFeedbackViewController.swift */,
+				F8D7CB18224D0841006D480B /* JoinMeetingViewController.swift */,
+				F8D7CB16224D07F6006D480B /* StatisticsViewController.swift */,
+				F8DC8F722249320F004B5079 /* ViewController.swift */,
+				F8DC8F70224930EA004B5079 /* StartScreenViewController.swift */,
+				F8D7CB14224D0771006D480B /* ChooseRoleViewController.swift */,
+				F8CB7D59225BD03D0075825D /* OrganiserTableViewController.swift */,
+				F81C4F33225E10E800C76934 /* MeetingsViewController.swift */,
+				F81C4F3A225E3ED900C76934 /* MeetingOrganiserViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		F8B172232242827A009FB795 = {
 			isa = PBXGroup;
 			children = (
 				F8B1722E2242827B009FB795 /* spinoff_62417_exam_s153901 */,
 				F8B1722D2242827B009FB795 /* Products */,
+				FC0A5FD15F629945F66536EB /* Pods */,
+				A611FB6B9CABBD75495A48E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +160,53 @@
 		F8B1722E2242827B009FB795 /* spinoff_62417_exam_s153901 */ = {
 			isa = PBXGroup;
 			children = (
-				F8B1722F2242827B009FB795 /* AppDelegate.swift */,
-				F8B172312242827B009FB795 /* ViewController.swift */,
-				F8B172332242827B009FB795 /* Main.storyboard */,
+				F8FB773C22838A1600DABE87 /* Extensions */,
+				F8327B43225BAB09005B21D8 /* Utilities */,
+				F83F999F225BCB900087BD0D /* Controllers */,
+				F8327B3E225A3576005B21D8 /* Model */,
+				F8CB7D56225BCCD60075825D /* View */,
 				F8B172362242827C009FB795 /* Assets.xcassets */,
-				F8B172382242827C009FB795 /* LaunchScreen.storyboard */,
+				F8B1722F2242827B009FB795 /* AppDelegate.swift */,
+				F837E411224D342A00ACE8DF /* GoogleService-Info.plist */,
 				F8B1723B2242827C009FB795 /* Info.plist */,
 			);
 			path = spinoff_62417_exam_s153901;
+			sourceTree = "<group>";
+		};
+		F8CB7D56225BCCD60075825D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F8B172332242827B009FB795 /* Main.storyboard */,
+				F89A51BF2275AD6B002F99DE /* statisticsCell.swift */,
+				F8B172382242827C009FB795 /* LaunchScreen.storyboard */,
+				F81C4F37225E12BF00C76934 /* MeetingTableViewCell.swift */,
+				F81C4F3E2266564100C76934 /* MyCustomCreateQuestionCell.swift */,
+				F81C4F3F2266564100C76934 /* MyCustomCreateQuestionCell.xib */,
+				F89A51C12275E0CA002F99DE /* statisticsCustomTableViewCell.swift */,
+				F89A51C22275E0CA002F99DE /* statisticsCustomTableViewCell.xib */,
+				F81718732280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.swift */,
+				F81718742280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.xib */,
+				F83914E42286D4C40027B6E0 /* WatchMeetingTableViewCell.swift */,
+				F83914E52286D4C40027B6E0 /* WatchMeetingTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F8FB773C22838A1600DABE87 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8FB773D22838A6B00DABE87 /* UITextFieldExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FC0A5FD15F629945F66536EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D843C308AF2C10DD99FFD8AB /* Pods-spinoff_62417_exam_s153901.debug.xcconfig */,
+				1CD9B5FB3605EECA3D82435D /* Pods-spinoff_62417_exam_s153901.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8B1723E2242827C009FB795 /* Build configuration list for PBXNativeTarget "spinoff_62417_exam_s153901" */;
 			buildPhases = (
+				D6D06150D614DD175EEACA83 /* [CP] Check Pods Manifest.lock */,
 				F8B172282242827B009FB795 /* Sources */,
 				F8B172292242827B009FB795 /* Frameworks */,
 				F8B1722A2242827B009FB795 /* Resources */,
+				76A795FA5E9A6B2C26177E4E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +243,7 @@
 				TargetAttributes = {
 					F8B1722B2242827B009FB795 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -122,7 +270,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83914E72286D4C40027B6E0 /* WatchMeetingTableViewCell.xib in Resources */,
+				F81C4F412266564100C76934 /* MyCustomCreateQuestionCell.xib in Resources */,
+				F81C4F32225DF40200C76934 /* ToDo.txt in Resources */,
 				F8B1723A2242827C009FB795 /* LaunchScreen.storyboard in Resources */,
+				F89A51C42275E0CA002F99DE /* statisticsCustomTableViewCell.xib in Resources */,
+				F81718762280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.xib in Resources */,
+				F837E412224D342A00ACE8DF /* GoogleService-Info.plist in Resources */,
 				F8B172372242827C009FB795 /* Assets.xcassets in Resources */,
 				F8B172352242827B009FB795 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +284,97 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		76A795FA5E9A6B2C26177E4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spinoff_62417_exam_s153901/Pods-spinoff_62417_exam_s153901-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-spinoff_62417_exam_s153901/Pods-spinoff_62417_exam_s153901-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6D06150D614DD175EEACA83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spinoff_62417_exam_s153901-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F8B172282242827B009FB795 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8B172322242827B009FB795 /* ViewController.swift in Sources */,
+				F81C4F34225E10E800C76934 /* MeetingsViewController.swift in Sources */,
+				F8FB773E22838A6B00DABE87 /* UITextFieldExtension.swift in Sources */,
+				F8327B40225A3712005B21D8 /* Answers.swift in Sources */,
 				F8B172302242827B009FB795 /* AppDelegate.swift in Sources */,
+				F8D7CB1B224D087B006D480B /* StartFeedbackViewController.swift in Sources */,
+				F8DC8F732249320F004B5079 /* ViewController.swift in Sources */,
+				F8CB7D5A225BD03D0075825D /* OrganiserTableViewController.swift in Sources */,
+				F89A51C32275E0CA002F99DE /* statisticsCustomTableViewCell.swift in Sources */,
+				F8327B47225BAD3D005B21D8 /* Questions.swift in Sources */,
+				F81C4F402266564100C76934 /* MyCustomCreateQuestionCell.swift in Sources */,
+				F83914E62286D4C40027B6E0 /* WatchMeetingTableViewCell.swift in Sources */,
+				F8327B45225BAB17005B21D8 /* Constants.swift in Sources */,
+				F8D7CB17224D07F6006D480B /* StatisticsViewController.swift in Sources */,
+				F8327B42225BA50D005B21D8 /* Meeting.swift in Sources */,
+				F8DC8F71224930EA004B5079 /* StartScreenViewController.swift in Sources */,
+				F81718752280F1480068FEBB /* YoshikoCreateMeetingTableViewCell.swift in Sources */,
+				F81C4F3B225E3ED900C76934 /* MeetingOrganiserViewController.swift in Sources */,
+				F8D7CB19224D0841006D480B /* JoinMeetingViewController.swift in Sources */,
+				F81C4F38225E12BF00C76934 /* MeetingTableViewCell.swift in Sources */,
+				F8BE38442252A67E00948EA4 /* StartOrWatchMeetingViewController.swift in Sources */,
+				F8D7CB15224D0771006D480B /* ChooseRoleViewController.swift in Sources */,
+				F89A51C02275AD6B002F99DE /* statisticsCell.swift in Sources */,
+				F8D7CB1D224D08A3006D480B /* GiveFeedbackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,10 +518,11 @@
 		};
 		F8B1723F2242827C009FB795 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D843C308AF2C10DD99FFD8AB /* Pods-spinoff_62417_exam_s153901.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 852565M2MS;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
 				INFOPLIST_FILE = spinoff_62417_exam_s153901/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -291,17 +530,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.magnusenevoldsen.spinoff-62417-exam-s153901";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		F8B172402242827C009FB795 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CD9B5FB3605EECA3D82435D /* Pods-spinoff_62417_exam_s153901.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 852565M2MS;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
 				INFOPLIST_FILE = spinoff_62417_exam_s153901/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,8 +549,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.magnusenevoldsen.spinoff-62417-exam-s153901";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
