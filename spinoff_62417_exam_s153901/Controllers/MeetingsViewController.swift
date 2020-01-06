@@ -11,19 +11,14 @@ import Firebase
 
 class MeetingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
     //Outlets
     @IBOutlet weak var meetingTableView: UITableView!
-    
     
     //Variables
     let defaults = UserDefaults.standard
     private var meetings = [Meeting]()
     private var meetingsCollectionRef : CollectionReference!
     private var companyIdString : String = ""
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +27,15 @@ class MeetingsViewController: UIViewController, UITableViewDataSource, UITableVi
         meetingTableView.dataSource = self
         
         //Get the company ID from user defaults (Was stored on login, so should always work)
-        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {
-            companyIdString = companyIDFromUserDefaults.lowercased()
-        }
+        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {companyIdString = companyIDFromUserDefaults.lowercased()}
         
+        self.defaults.set(STATICTICS_CAME_FROM_WATCH_MEETING, forKey: STATISTICS_CAME_FROM_THIS_SCREEN)
         
         meetingTableView.register(UINib(nibName: "WatchMeetingTableViewCell", bundle: nil), forCellReuseIdentifier: "watchMeetingTableViewCell")
         
         meetingsCollectionRef = Firestore.firestore().collection(COMPANY_REF).document(companyIdString).collection(MEETING_REF)
         
+        //Tilbageknap
         let backImage = UIImage(named: IMAGE_BACKARROW)?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popNavigation))
     }
@@ -48,8 +43,6 @@ class MeetingsViewController: UIViewController, UITableViewDataSource, UITableVi
     @objc func popNavigation() {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
     
     //Used to do all the firebase stuff
     override func viewWillAppear(_ animated: Bool) {
@@ -62,11 +55,9 @@ class MeetingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 for document in snap.documents {
                     let data = document.data()
                     
-//                    let startDate = data[MEETING_START_TIME] as? Date ?? Date()
                     let startDate = data[MEETING_START_TIME] as! Timestamp
                     let convertedStartDate = Date(timeIntervalSince1970: TimeInterval(startDate.seconds))
                     
-//                    let enddate = data[MEETING_END_TIME] as? Date ?? Date()
                     let endDate = data[MEETING_END_TIME] as! Timestamp
                     let convertedEndDate = Date(timeIntervalSince1970: TimeInterval(endDate.seconds))
                     
@@ -87,15 +78,6 @@ class MeetingsViewController: UIViewController, UITableViewDataSource, UITableVi
         return meetings.count
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as? MeetingTableViewCell {
-//            cell.configureCell(meeting: meetings[indexPath.row])
-//            return cell
-//        } else {
-//            return UITableViewCell()
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "watchMeetingTableViewCell", for: indexPath) as? WatchMeetingTableViewCell {
             cell.configureCell(meeting: meetings[indexPath.row])
@@ -105,13 +87,10 @@ class MeetingsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        CONSTANTS_MEETING = meetings[indexPath.row]
         self.defaults.set(meetings[indexPath.row].meetingId, forKey: STATISTICS_MEETING_ID_KEY)
         print(meetings[indexPath.row].meetingId!)
         performSegue(withIdentifier: "goToMeetingStatisticsScreen", sender: self)
     }
-
-    
-
 }

@@ -23,14 +23,15 @@ class GiveFeedbackViewController: UIViewController, UITextViewDelegate {
     private var companyIdString : String = ""
     private var meetingIdString : String = ""
     private var meetingCollectionsRef : CollectionReference!
+    
     //Questions
     private var numberOfQuestions : Int = 0
     private var currentQuestionNumber : Int = 0
     private var questionsArray : [String] = []
+    
     //Rating
     private var ratingArray : [String : Any] = [:]
     private var currentRating : Double = 3.0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,25 +41,23 @@ class GiveFeedbackViewController: UIViewController, UITextViewDelegate {
         layoutButton(button: nextButton)
         
         
-        //Get the company ID from user defaults (Was stored on login, so should always work)
-        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {
-            companyIdString = companyIDFromUserDefaults.lowercased()
-        }
-        if let meetingIDFromUserDefaults = defaults.string(forKey: JOIN_MEETING_ID_KEY) {
-            meetingIdString = meetingIDFromUserDefaults
-        }
+        //Get the company ID and meeting ID from user defaults (Was stored on login, so should always work)
+        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {companyIdString = companyIDFromUserDefaults.lowercased()}
+        if let meetingIDFromUserDefaults = defaults.string(forKey: JOIN_MEETING_ID_KEY) {meetingIdString = meetingIDFromUserDefaults}
+        
         //Firebase reference
         meetingCollectionsRef = Firestore.firestore().collection(COMPANY_REF).document(companyIdString).collection(MEETING_REF)
-        print("The road -> \(COMPANY_REF) -> \(companyIdString) -> \(MEETING_REF) -> \(meetingIdString) -> \(AGENDA_REF)")
         
         cosmosView.didTouchCosmos = {
             rating in print("Rated: \(rating)")
             self.currentRating = rating
-//            print(self.currentRating)
         }
+        
+        //Remove the current text
         headerLabel.text = ""
         agendaQuestionTextField.text = ""
 
+        //Tilbageknap
         let backImage = UIImage(named: IMAGE_BACKARROW)?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popNavigation))
     }
@@ -75,36 +74,27 @@ class GiveFeedbackViewController: UIViewController, UITextViewDelegate {
             } else {
                 guard let snap = snapshot else {return}
                 for document in snap.documents {
-                    print("DOC !")
-                    print(document)
                     let data = document.data()
                     let amount = data[MEETING_Q_AMOUNT] as? Int ?? 0
                     var newArray = [String]()
                     for index in 1...amount {
                         newArray.append(data["\(index)"] as? String ?? ERROR_LOADING_QUESTION)
                     }
-//                    let documentId = document.documentID
-                    print(newArray)
                     self.questionsArray = newArray
                     self.numberOfQuestions = amount
-                    print("amount = \(amount)")
-//                    self.agendaQuestions = Questions(questions: newArray, documentId: documentId)
-                    
                     self.pushNextQuestion()
                     
                 }
             }
         }
-//        print("Her er vi -> \(agendaQuestions.questions[1])")
-        
     }
     
     func pushNextQuestion() {
-//        print("FØR : currentQuestionNumber = \(currentQuestionNumber), numberOfQuestions = \(numberOfQuestions)")
         if currentQuestionNumber < numberOfQuestions {
             headerLabel.text = "\(FEEDBACK_MEETING_POINT) \(currentQuestionNumber + 1)"
             agendaQuestionTextField.text = questionsArray[currentQuestionNumber]
         } else {
+            
             //Push ratings to firebase
             meetingCollectionsRef.document(meetingIdString).collection(ANSWERS_REF).addDocument(data: ratingArray) {
                 (error) in
@@ -121,13 +111,12 @@ class GiveFeedbackViewController: UIViewController, UITextViewDelegate {
             nextButton.setTitle(FEEDBACK_LOG_OUT, for: .normal)
         }
         currentQuestionNumber = currentQuestionNumber + 1
-        
-//        print("EFTER : currentQuestionNumber = \(currentQuestionNumber), numberOfQuestions = \(numberOfQuestions)")
     }
     
     
     @IBAction func nextQuestionButton(_ sender: Any) {
         if currentQuestionNumber <= numberOfQuestions {
+            
             //Push rating to array
             ratingArray[String(currentQuestionNumber)] = currentRating
             
@@ -138,10 +127,7 @@ class GiveFeedbackViewController: UIViewController, UITextViewDelegate {
                 self.navigationController?.popToViewController(popBackToThisViewController, animated: true)
             }
         }
-        
-        
     }
-    
 
     func layoutButton(button : UIButton) {
         button.layer.cornerRadius = LAYOUT_CORNERRADIUS

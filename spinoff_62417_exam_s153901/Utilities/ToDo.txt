@@ -7,13 +7,6 @@ Skærm 4: Deltager valgt, giv hvert spørgsmål en 1-5 rating
 Skærm 4.5: Tak for din feedback -> log ud
 Skærm 5: Mødeholder skal kunne se info om sit møde efter folk har stemt.
 
-Lav en model til at holde input fra deltagere ligesom weathermodeldata.
-
-Skærm skift = segue
-
-evt. Skal appen kunne huske møder man selv har oprettet.
-
-
 
 Møde info:
 Dato, sted, start, slut
@@ -40,13 +33,6 @@ Møde ledelse
 Tidsstyring
 Mit eget engagement som mødedeltager
 Overordnet mødevurdering
-
-
-
-To do
-Lav navigationcontroller
-
-self.navigationController?.popViewController(animated: true)
 
 
 
@@ -165,19 +151,9 @@ userInfoTest[String(index)] = answers[index-1]
 
 
 
-Fejl (1)
-Den sletter det den celle fra det aktive textfield - ikke det der swipes på.
-Den nyeste der tilføjes sættes som først i arrayet.
-Hvis en forkert celle er aktiv, slettes nederste den af arrayet.
-Når jeg klikker rundt fjerner den ting fra arrayet.
-Det er somom den resetter -> tilføj 3 celler og skriv i den nederste = den er nr 3 i arrayet.
-Det er helt galt.
-Måske fikset????
-
-
-DONE Hvis man går tilbage uden at have uploadet til firebase skal ens entry slettes.
-DONE Sæt fokus på nyeste textfield i opret møde -> Skaber fejl (1)
-DONE Lav en register company    -> Prøv at lave "Virksomhed eksistere allerede"
+DONE Hvis man går tilbage uden at have uploadet til firebase skal ens entry slettes
+DONE Sæt fokus på nyeste textfield i opret møde -> Skaber fejl
+DONE Lav en register company -> Prøv at lave "Virksomhed eksistere allerede"
 DONE Tilføj company eksistere ikke til startskærm.
 DONE App Ikon -> Farvekode #8dc63f
 DONE Ændrer hvor "Log ud" går hen når man har været mødedeltager.
@@ -185,15 +161,11 @@ DONE Flyt alle tekst variabler til Constants
 DONE Fix at UI ikke rykker med ned på startskærmen command+k
 DONE Lav statistik grøn også
 DONE Fik autoscroll på opret møde
-DONE Lav et opstarts logo.
-
-Prøv at lave auto adjust labels
-Fix at den går 2x tilbage fra statistik altid
-
-
+DONE Lav et launchscreen logo
+DONE Fix at den går 2x tilbage fra statistik altid
+DONE Lav så man kan se titel, starttid etc. når man har klikket ind på et møde -> over tableviewet
 
 Eventuelt:
 Log brugere
-Søjlediagrammer.
+Søjlediagrammer
 Lav knappen rund og spin når man validater input.
-Gem værdi fra datepicker hvis brugeren trykker udenfor pickeren

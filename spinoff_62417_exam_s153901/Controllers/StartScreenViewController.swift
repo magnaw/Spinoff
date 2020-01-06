@@ -25,32 +25,22 @@ class StartScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //Layout setup
         layoutTextfields(textfield: CompanyIDTextField)
         layoutButton(button: enteredIdButtonOutlet)
-        
-        
 
         // If company has been logged into before, automatically input the ID
-        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {
-            CompanyIDTextField.text = companyIDFromUserDefaults
-        }
+        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {CompanyIDTextField.text = companyIDFromUserDefaults}
+        
         //Firebase reference
         companyCollectionRef = Firestore.firestore().collection(COMPANY_REF)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
-        
     }
     
     
     @objc func keyboardWillShow(Notification: NSNotification) {
-        guard let userInfo = Notification.userInfo else {return}
-        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
-        let keyboardFrame = keyboardSize.cgRectValue
         if self.view.frame.origin.y == 0 {
             self.view.frame.origin.y -= 150.0
         }
@@ -71,11 +61,10 @@ class StartScreenViewController: UIViewController {
     }
     
     @IBAction func enteredIDButton(_ sender: UIButton) {
-        print("You pressed the enteredIDButton!")
+
         //Prevent doubletaps
         enteredIdButtonOutlet.isEnabled = false
         self.view.endEditing(true)
-
 
         //Set to lowercase to avoid confusion
         let userInputText : String = CompanyIDTextField.text!.lowercased()
@@ -89,8 +78,6 @@ class StartScreenViewController: UIViewController {
                 for document in snap.documents {
                     let data = document.data()
                     var title = data[COMPANY_TITLE] as? String
-//                    let documentId = document.documentID
-
                     //Set to lowercase to avoid confusion
                     title = title?.lowercased()
 
@@ -105,7 +92,6 @@ class StartScreenViewController: UIViewController {
                     }
                 }
                 if !inputAccepted {
-//                    self.messageToUser(title: ALERT_WRONG_COMPANY_MESSAGE, message: "")
                     self.CompanyIDTextField.shake()
                 }
             }
@@ -171,7 +157,4 @@ class StartScreenViewController: UIViewController {
         button.layer.shadowRadius = LAYOUT_SHADOWRADIUS
         button.layer.masksToBounds = LAYOUT_MASKSTOBOUNDS
     }
-    
-    
-    
 }

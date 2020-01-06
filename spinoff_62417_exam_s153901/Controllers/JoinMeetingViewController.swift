@@ -22,8 +22,6 @@ class JoinMeetingViewController: UIViewController {
     private var companyIdString : String = ""
     private var meetingIdString : String = ""
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,30 +30,22 @@ class JoinMeetingViewController: UIViewController {
         layoutButton(button: continueToMeetingButtonOutlet)
         
         //Get the company ID from user defaults (Was stored on login, so should always work)
-        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {
-            companyIdString = companyIDFromUserDefaults.lowercased()
-        }
-        if let meetingIDFromUserDefaults = defaults.string(forKey: CREATE_MEETING_ID_KEY) {
-            meetingIdString = meetingIDFromUserDefaults
-        }
+        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {companyIdString = companyIDFromUserDefaults.lowercased()}
+        if let meetingIDFromUserDefaults = defaults.string(forKey: CREATE_MEETING_ID_KEY) {meetingIdString = meetingIDFromUserDefaults}
 
-        
         //Firebase reference
         meetingCollectionRef = Firestore.firestore().collection(COMPANY_REF).document(companyIdString).collection(MEETING_REF)
 
         let backImage = UIImage(named: IMAGE_BACKARROW)?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popNavigation))
         
-        
+        //Keyboard håndtering
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
     @objc func keyboardWillShow(Notification: NSNotification) {
-        guard let userInfo = Notification.userInfo else {return}
-        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
-        let keyboardFrame = keyboardSize.cgRectValue
         if self.view.frame.origin.y == 0 {
             self.view.frame.origin.y -= 150.0
         }
@@ -75,26 +65,15 @@ class JoinMeetingViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    //Alert to show when user has not filled in all textfields
-    func alertUserWrongMeetingId() {
-        let alert = UIAlertController(title: ALERT_INPUT_MISSING_ERROR_TITLE, message: ALERT_WRONG_MEETING_ID_MESSAGE, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString(ALERT_ACTION_TITLE_OK, comment: ALERT_ACTION_COMMENT), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     @IBAction func continueToMeetingButton(_ sender: Any) {
+        
         //Set to lowercase to avoid confusion
         let userInputText : String = meetingIdTextField.text!
         companyInputAccepted = false
+        
         //Prevent doubletaps
         continueToMeetingButtonOutlet.isEnabled = false
-        
         self.view.endEditing(true)
-        
-        
-        
         
         meetingCollectionRef.getDocuments { (snapshot, error) in
             if let error = error {
@@ -105,21 +84,20 @@ class JoinMeetingViewController: UIViewController {
                     let data = document.data()
                     let meetingId = data[MEETING_ID] as? String
                     if userInputText == meetingId {
+                        
                         //Accept the id for next step.
                         self.companyInputAccepted = true
+                        
                         //Save the meeting id for later reference.
                         self.defaults.set(meetingId, forKey: JOIN_MEETING_ID_KEY)
                     }
                         
                 }
                 if self.companyInputAccepted {
-                    print("Det virkede, vi sender videre")
                     self.resetBorderColorTextField(textfield: self.meetingIdTextField)
                     self.performSegue(withIdentifier: "goToStartFeedbackScreen", sender: self)
                 } else {
-                    print("Det virkede ikke, vi laver alert")
                     self.continueToMeetingButtonOutlet.isEnabled = true
-//                    self.alertUserWrongMeetingId()
                     self.meetingIdTextField.shake()
                 }
             }
@@ -149,8 +127,4 @@ class JoinMeetingViewController: UIViewController {
         button.layer.shadowRadius = LAYOUT_SHADOWRADIUS
         button.layer.masksToBounds = LAYOUT_MASKSTOBOUNDS
     }
-    
-    
-
-
 }

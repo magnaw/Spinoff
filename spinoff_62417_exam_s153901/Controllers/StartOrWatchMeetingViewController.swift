@@ -10,6 +10,7 @@ import UIKit
 
 class StartOrWatchMeetingViewController: UIViewController {
     
+    //Outlets
     @IBOutlet weak var watchStatisticsButton: UIButton!
     @IBOutlet weak var createMeetingButton: UIButton!
     
@@ -23,9 +24,7 @@ class StartOrWatchMeetingViewController: UIViewController {
         layoutButton(button: watchStatisticsButton)
         layoutButton(button: createMeetingButton)
         
-        self.defaults.set(STATICTICS_CAME_FROM_WATCH_MEETING, forKey: STATISTICS_CAME_FROM_THIS_SCREEN)
-
-        // Do any additional setup after loading the view.
+        //Tilbageknap
         let backImage = UIImage(named: IMAGE_BACKARROW)?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popNavigation))
     }

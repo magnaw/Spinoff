@@ -14,9 +14,7 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createMeetingButtonOutlet: UIButton!
     @IBOutlet weak var topViewBottomConstaint: NSLayoutConstraint!
-    
     @IBOutlet weak var createMeetingButtonConstraint: NSLayoutConstraint!
-    
     
     //Variables
     private var questionsArray : [String] = []
@@ -31,7 +29,6 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
     private var companyIdString : String = ""
     private var meetingIdString : String = ""
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,29 +41,24 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
         //Layout
         layoutButton(button: createMeetingButtonOutlet)
         
-        print("height : \(tableView.contentSize.height)")
-        
         //Register my custom table cell
-//        tableView.register(UINib(nibName: "MyCustomCreateQuestionCell", bundle: nil), forCellReuseIdentifier: "myCustomQuestionCell")
         tableView.register(UINib(nibName: "YoshikoCreateMeetingTableViewCell", bundle: nil), forCellReuseIdentifier: "yoshikoCreateMeetingCell")
         
         //Get the company ID from user defaults (Was stored on login, so should always work)
         if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {companyIdString = companyIDFromUserDefaults.lowercased()}
-        //Get the company ID from user defaults (Was stored on login, so should always work)
+        //Get the meeting ID from user defaults
         if let meetingIDFromUserDefaults = defaults.string(forKey: CREATE_MEETING_ID_KEY) {meetingIdString = meetingIDFromUserDefaults}
         
         //Firebase reference
         agendaCollectionsRef = Firestore.firestore().collection(COMPANY_REF).document(companyIdString).collection(MEETING_REF)
         
-        //Back button
+        //Tilbageknap
         let backImage = UIImage(named: IMAGE_BACKARROW)?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popNavigation))
         
         //Keyboard will show
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
         
     }
     
@@ -88,7 +80,6 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
-                print("Document successfully removed!")
                 //Go back to StartOrWatchMeetingViewController at index 2
                 if let popBackToThisViewController = self.navigationController?.viewControllers[2] {
                     self.navigationController?.popToViewController(popBackToThisViewController, animated: true)
@@ -103,66 +94,33 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
     
     //Tilføj emner på dagsordenen
     @IBAction func addTopicButton(_ sender: UIBarButtonItem) {
-//        alertUserForInput(arrayIndex: 0, editOrAdd: "add")
         addToQuestionsArray(newQuestion: "")
     }
     
     //Tilføj mødepunkt til arrayet
     func addToQuestionsArray(newQuestion : String) {
         questionsArray.append(newQuestion)
-        
-        print("Added a questions : \(questionsArray)")
-        
         let indexPath = IndexPath(row: questionsArray.count - 1, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .automatic)
         tableView.endUpdates()
         tableView.scrollToBottomRow()
         
-//        currentlySelectedTextfield = questionsArray.count
-        
-        print("ADDED TO : \(currentlySelectedTextfield)")
-        
     }
-    
-//    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-//        questionsArray[currentlySelectedTextfield] = textField.text!
-//        print("Arrayet ser nu sådan ud: \(questionsArray)")
-//    }
-    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let pointInTable = textField.convert(textField.bounds.origin, to: self.tableView)
         let textFieldIndexPath = self.tableView.indexPathForRow(at: pointInTable)!
         tableView(self.tableView, didSelectRowAt: textFieldIndexPath)
-        print("point = \(pointInTable) - indexpath = \(textFieldIndexPath)")
-//        currentlySelectedTextfield = textFieldIndexPath[1]
-        print("DID BEGIN EDITING : \(currentlySelectedTextfield)")
     }
-    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("DID END EDITING : \(currentlySelectedTextfield)")
         questionsArray[currentlySelectedTextfield] = textField.text!
-        print("Arrayet ser nu sådan ud: \(questionsArray)")
     }
-    
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        questionsArray[currentlySelectedTextfield] = textField.text!
-//        print("Arrayet ser nu sådan ud: \(questionsArray)")
-//        return true
-//    }
-//    //TODO: Declare textFieldDidEndEditing here:
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        UIView.animate(withDuration: 0.5){
-//            self.heightConstraint.constant = 50
-//            self.view.layoutIfNeeded()
-//        }
-//    }
-    
     
     //Skal oprette questions (agenda) under meeting id'et
     @IBAction func createMeetingButton(_ sender: Any) {
+        
         //Tilføj standardspørgsmål lige inden upload så de ligger sidst i arrayet.
         self.view.endEditing(true)
         
@@ -174,7 +132,6 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
         if questionsAmount > 0 {
             for index in 1...questionsAmount {
                 data[String(index)] = questionsArray[index-1]
-                //            print("Index: \(index), Value: \(answers[index-1])")
             }
         }
         
@@ -188,10 +145,6 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
         let amount = data.count
         data[DB_AMOUNT] = amount
         
-        
-        print(data)
-        
-        
         //Upload data and go to next screen (This should be the corresponding feedback page
         agendaCollectionsRef.document(meetingIdString).collection(AGENDA_REF).document(AGENDA_QUESTIONS_REF).setData(data) { err in
             if let err = err {
@@ -203,40 +156,12 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
                 self.performSegue(withIdentifier: "goToMeetingStatistics", sender: self)
             }
         }
-        
-        
-        
-        
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questionsArray.count
     }
     
-    
-    
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        self.viewWillLayoutSubviews()
-//    }
-    
-
-    
-//    //DONT DELETE!
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "myCustomQuestionCell", for: indexPath) as? MyCustomCreateQuestionCell {
-//            cell.configureCell(title: "\(FEEDBACK_MEETING_POINT) \(indexPath.row + 1)", usersInput: self.questionsArray[indexPath.row])
-//            cell.userWillInputField.delegate = self
-////            cell.userWillInputField.becomeFirstResponder()
-//            self.tableView(self.tableView, didSelectRowAt: indexPath)
-//            return cell
-//        } else {
-//            return UITableViewCell()
-//        }
-//    }
-    
-//    DONT DELETE!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "yoshikoCreateMeetingCell", for: indexPath) as? YoshikoCreateMeetingTableViewCell {
             cell.configureCell(placeholder: "Mødepunkt \(indexPath.row + 1)")
@@ -248,12 +173,8 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentlySelectedTextfield = indexPath.row
-//        alertUserForInput(arrayIndex: indexPath.row, editOrAdd: "edit")
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -269,12 +190,10 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
             let newIndexPath = IndexPath(row: indexPath.row, section: 0)
             tableView.deleteRows(at: [newIndexPath], with: .automatic)
             tableView.endUpdates()
-            tableView.reloadData() //Apparently updates the numbers of the agenda
+            tableView.reloadData()
             currentlySelectedTextfield = 0
         }
     }
-    
-    
     
     func layoutTextfields(textfield : UITextField) {
         textfield.layer.cornerRadius = LAYOUT_CORNERRADIUS
@@ -299,14 +218,9 @@ class OrganiserTableViewController: UIViewController, UITableViewDataSource, UIT
         button.layer.shadowRadius = LAYOUT_SHADOWRADIUS
         button.layer.masksToBounds = LAYOUT_MASKSTOBOUNDS
     }
-    
-    
-    
-
 }
 
-
-//Code borrrowed from : https://stackoverflow.com/questions/33705371/how-to-scroll-to-the-exact-end-of-the-uitableview
+//Code borrowed from : https://stackoverflow.com/questions/33705371/how-to-scroll-to-the-exact-end-of-the-uitableview
 extension UITableView {
     func scrollToBottomRow() {
         DispatchQueue.main.async {
@@ -345,31 +259,3 @@ extension UITableView {
         return section < self.numberOfSections && row < self.numberOfRows(inSection: section)
     }
 }
-////Prompter user for input til nyt emne i listen eller
-//func alertUserForInput(arrayIndex : Int, editOrAdd : String) {
-//    var alertTitle = ALERT_PROMPT_USER_FOR_NEW_INPUT_TITLE
-//    if editOrAdd == "edit" {
-//        alertTitle = ALERT_PROMPT_USER_FOR_INPUT_TITLE
-//    }
-//    let alert = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
-//    alert.addAction(UIAlertAction(title: ALERT_ACTION_TITLE_CANCEL, style: .cancel, handler: nil))
-//
-//    alert.addTextField(configurationHandler: { textField in
-//        textField.placeholder = "Titel..."
-//        if editOrAdd == "edit" {
-//            textField.text = self.questionsArray[arrayIndex]
-//        }
-//    })
-//    alert.addAction(UIAlertAction(title: ALERT_ACTION_TITLE_OK, style: .default, handler: { action in
-//        if let meetingQuestion = alert.textFields?.first?.text {
-//            if editOrAdd == "edit" {
-//                self.questionsArray[arrayIndex] = meetingQuestion
-//                self.tableView.reloadData()
-//            }
-//            if editOrAdd == "add" {
-//                self.addToQuestionsArray(newQuestion: meetingQuestion)
-//            }
-//        }
-//    }))
-//    self.present(alert, animated: true)
-//}

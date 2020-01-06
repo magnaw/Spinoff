@@ -17,6 +17,8 @@ class Meeting {
     private(set) var meetingId : String!
     private(set) var documentId : String!
     
+    init() {
+    }
     
     //This one is never gonna get used?
     init(startDate : Date, endDate : Date, meetingTitle : String, meetingRoom : String) {

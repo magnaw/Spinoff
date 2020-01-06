@@ -44,7 +44,7 @@ class MeetingOrganiserViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Layout setup
+        //Layout
         layoutTextfields(textfield: meetingTitleText)
         layoutTextfields(textfield: meetingLocationText)
         layoutTextfields(textfield: meetingStartText)
@@ -52,23 +52,22 @@ class MeetingOrganiserViewController: UIViewController, UITextFieldDelegate {
         layoutButton(button: goToAgendaScreenOutlet)
         
         //Get the company ID from user defaults (Was stored on login, so should always work)
-        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {
-            companyIdString = companyIDFromUserDefaults.lowercased()
-        }
+        if let companyIDFromUserDefaults = defaults.string(forKey: COMPANY_ID_KEY) {companyIdString = companyIDFromUserDefaults.lowercased()}
+        
+        //Firebase
         meetingsCollectionRef = Firestore.firestore().collection(COMPANY_REF).document(companyIdString).collection(MEETING_REF)
 
+        //Datepicker
         showDatePicker(textField: meetingStartText)
         showDatePicker(textField: meetingEndText)
         
+        //Tilbageknap
         let backImage = UIImage(named: IMAGE_BACKARROW)?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popNavigation))
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
-        
     }
-    
     
     @objc func keyboardWillShow(Notification: NSNotification) {
         if self.view.frame.origin.y == 0 {
@@ -104,7 +103,6 @@ class MeetingOrganiserViewController: UIViewController, UITextFieldDelegate {
         
         textField.inputAccessoryView = toolbar
         textField.inputView = myDatePicker
-        
     }
     
     @objc func doneDatePicker(){
@@ -164,6 +162,8 @@ class MeetingOrganiserViewController: UIViewController, UITextFieldDelegate {
         MEETING_END_TIME: actualEndTime,
         MEETING_ID: meetingId
             ]
+        let newMeeting = Meeting(startDate: actualStartTime, endDate: actualEndTime, meetingTitle: titleText, meetingRoom: locationText)
+        CONSTANTS_MEETING = newMeeting
         
         //Upload data and go to next screen
         meetingsCollectionRef.document(meetingId).setData(data) { err in
@@ -221,19 +221,10 @@ class MeetingOrganiserViewController: UIViewController, UITextFieldDelegate {
         button.layer.shadowRadius = LAYOUT_SHADOWRADIUS
         button.layer.masksToBounds = LAYOUT_MASKSTOBOUNDS
     }
-    
-    
-    
-    
 }
 
-//Should change Date to be local, will check later
-//extension Date {
-//    var localizedDescription: String {
-//        return description(with: .current)
-//    }
-//}
 
+//Code borrowed from: https://stackoverflow.com/questions/30918732/how-to-determine-which-textfield-is-active-swift
 //Used to get the active textfield
 extension UIView {
     func getSelectedTextField() -> UITextField? {

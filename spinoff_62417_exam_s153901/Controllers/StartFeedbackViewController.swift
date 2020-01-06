@@ -10,6 +10,7 @@ import UIKit
 
 class StartFeedbackViewController: UIViewController {
 
+    
     @IBOutlet weak var startFeedbackButton: UIButton!
     
     override func viewDidLoad() {
@@ -18,7 +19,7 @@ class StartFeedbackViewController: UIViewController {
         //Layout
         layoutButton(button: startFeedbackButton)
 
-        // Do any additional setup after loading the view.
+        //Tilbageknap
         let backImage = UIImage(named: IMAGE_BACKARROW)?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popNavigation))
     }
@@ -27,7 +28,6 @@ class StartFeedbackViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-
     func layoutButton(button : UIButton) {
         button.layer.cornerRadius = LAYOUT_CORNERRADIUS
         button.layer.shadowColor = LAYOUT_SHADOWCOLOR

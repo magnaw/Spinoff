@@ -1,0 +1,4 @@
+Considerations: 
+https://cocoapods.org/pods/StarRatingView, 
+https://cocoapods.org/pods/RatingBar, 
+https://github.com/chilijung/RatingRow

@@ -75,8 +75,11 @@ let REGISTER_COMPANY_ACCEPTED = "Virksomheden er registreret, du kan nu logge in
 
 
 //GENERALT TEXT AND TITLES
+let STATISTICS_TITLE_MEETING = "Møde"
 let STATISTICS_TITLE_MEETING_ID = "Møde ID"
-let STATISTICS_TITLE_LOCATION = "Lokale"
+let STATISTICS_TITLE_LOCATION = "Sted"
+let STATISTICS_TITLE_START = "Start"
+let STATISTICS_TITLE_END = "Slut"
 let STATISTICS_TITLE_ERROR_LOADING = "Der skete en fejl"
 let FEEDBACK_MEETING_POINT = "Mødepunkt"
 let FEEDBACK_THANKS_FOR_FEEDBACK = "Tak for din feedback"
@@ -99,3 +102,6 @@ let LAYOUT_SHADOWCOLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
 let LAYOUT_SHADOWOFFSET = CGSize(width: 0, height: 3)
 
 
+
+//Meeting
+var CONSTANTS_MEETING : Meeting = Meeting(startDate: Date(), endDate: Date(), meetingTitle: "", meetingRoom: "", meetingId: "", documentId: "")

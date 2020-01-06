@@ -19,7 +19,7 @@ class ChooseRoleViewController: UIViewController {
         layoutButton(button: meetingParticipantButton)
         layoutButton(button: meetingLeaderButton)
 
-        // Do any additional setup after loading the view.
+        //Tilbageknap
         let backImage = UIImage(named: IMAGE_BACKARROW)?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popNavigation))
         
@@ -33,7 +33,6 @@ class ChooseRoleViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    
     func layoutButton(button : UIButton) {
         button.layer.cornerRadius = LAYOUT_CORNERRADIUS
         button.layer.shadowColor = LAYOUT_SHADOWCOLOR
@@ -42,5 +41,4 @@ class ChooseRoleViewController: UIViewController {
         button.layer.shadowRadius = LAYOUT_SHADOWRADIUS
         button.layer.masksToBounds = LAYOUT_MASKSTOBOUNDS
     }
-
 }
